@@ -111,7 +111,7 @@ exports.getTransactionById = async (req, res, next) => {
 // @access  Public
 exports.updateTransaction = async (req, res, next) => {
     try {
-        const transaction = await Transaction.useFindAndModify(req.params.id, req.body);
+        const transaction = await Transaction.findByIdAndUpdate(req.params.id, req.body);
 
         if (!transaction) {
             return res.status(404).json({
